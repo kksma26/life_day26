@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>WW Cafe</title>
+    <meta name="description" content="毎日の暮らしを楽しむ大人のWEBマガジン">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- リセットCSS -->
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+
+    <!-- ファビコン -->
+    <link rel="icon" type="image/png" href="images/wfavicon.png">
+
+    <!-- Googleフォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- ▼ 文字の中央寄せ・見やすい間隔（余白）のためのCSSを追加 ▼ -->
+    <style>
+        .accordion-wrapper {
+            max-width: 600px;
+            margin: 60px auto;
+            /* 上下の余白と左右中央寄せ */
+            padding: 0 20px;
+        }
+
+        .accordion-item {
+            margin-bottom: 20px;
+            /* 項目同士の間隔 */
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .accordion-question {
+            width: 100%;
+            padding: 18px 20px;
+            text-align: center;
+            /* 文字を中央に寄せる */
+            background-color: #f8f5f0;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .accordion-answer {
+            padding: 20px;
+            text-align: center;
+            /* 回答の文字も中央に寄せる */
+            background-color: #fff;
+            display: none;
+            /* 初期状態は非表示 */
+        }
+
+        /* 開閉時の表示切り替え用クラス */
+        .accordion-answer.is-open,
+        .accordion-question.is-open {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="cover cover-home">
+        <header class="page-header wrapper">
+            <h1 class="align-center">
+                <a href="index.html"><img class="logo" src="images/logo.png" alt="Life&Day ホーム"></a>
+            </h1>
+            <nav>
+                <ul class="main-nav font-english">
+                    <li><a href="eat.html">食べる</a></li>
+                    <li><a href="life.html">暮らす</a></li>
+                    <li><a href="Topics.html">news</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="Q&A.html">Q&A</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- ▼ アコーディオン部分（タグの構造を正しく修正） ▼ -->
+        <div class="accordion-wrapper">
+
+            <div class="accordion-item">
+                <button class="accordion-question">
+                    <span class="label-q">Q.</span>商品の購入は、どこでできますか。
+                </button>
+                <div class="accordion-answer">
+                    <p><span class="label-a">A.</span>代官山に店舗がございます。
+                        掲載商品の一部がございますので、お近くに来た際には、ぜひ、お立ち寄りください </p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-question">
+                    <span class="label-q">Q.</span>オンラインサイトはありますか？
+                </button>
+                <div class="accordion-answer">
+                    <p><span class="label-a">A.</span>ただいま、オンラインサイトを準備中です。
+                        いましばらくおまちください。
+                    </p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-question">
+                    <span class="label-q">Q.</span>営業時間を教えてください。
+                </button>
+                <div class="accordion-answer">
+                    <p><span class="label-a">A.店舗の営業時間は11:00〜19:00となっております。定休日は毎週水曜日です。</span></p>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="page-footer">
+            <h3 class="heading-large font-english">Information</h3>
+            <table class="info">
+                <tr>
+                    <th>住所</th>
+                    <td>東京都渋谷区代官山0-0</td>
+                </tr>
+                <tr>
+                    <th>電話</th>
+                    <td>03-1289-XXXX</td>
+                </tr>
+                <tr>
+                    <th>営業時間</th>
+                    <td>11:00〜19:00</td>
+                </tr>
+                <tr>
+                    <th>店休日</th>
+                    <td>水曜</td>
+                </tr>
+            </table>
+            <div class="copyright">
+                <small>&copy; 2026 Life&Day</small>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ▼ JavaScriptの修正（ループ処理ですっきり記述） ▼ -->
+    <script>
+        document.querySelectorAll(".accordion-question").forEach(function (question) {
+            question.addEventListener("click", function () {
+                question.nextElementSibling.classList.toggle("is-open");
+                question.classList.toggle("is-open");
+            });
+        });
+    </script>
+
+</body>
+
+</html>
